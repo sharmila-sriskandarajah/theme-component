@@ -1,0 +1,77 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="red-styles.html">
+
+<dom-module id="basic-component">  
+
+   <style  include="red-styles"></style>
+   <style>
+
+    span {
+      color: var(--color);
+    }
+
+    .labelcls{
+        background-color :var(--bg-color);
+        color: var(--btn-color);
+        width:var(--width);
+        display: block;
+    }
+
+    .inputfieldcls{
+         color: var(--color);
+         width:var(--width);
+    }
+
+    .buttoncls{
+        background-color :var(--bg-color);
+        color: var(--btn-color);
+        width:var(--width);
+    }
+
+
+  </style>
+
+  <template>
+  <form >
+    <label for="male" class="labelcls">Male    </label>
+    <input type="text" name="gender" id="male" value="male" class="inputfieldcls"><br>
+    <label for="female" class="labelcls">Female</label>
+    <input type="text" name="gender" id="female" value="female" class="inputfieldcls"><br>
+    <label for="other" class="labelcls">Other  </label>
+    <input type="text" name="gender" id="other" value="other" class="inputfieldcls"><br><br>
+  </form>
+
+  <div>
+    Hi! My name is <span>sharmila</span>
+  </div>
+  <button on-click="redClick" class="buttoncls">Red Theme</button>
+  <button on-click="blueClick" class="buttoncls">Blue Theme</button>
+  </template>
+  
+  <script>
+    Polymer({
+      is: 'basic-component',
+
+      redClick: function() {
+        this.customStyle['--color'] = 'red';
+        this.customStyle['--width'] = '200px';
+        this.customStyle['--bg-color'] = '#ff8080';
+        this.customStyle['--btn-color'] = 'black';
+
+        Polymer.updateStyles();
+      },
+      blueClick: function() {
+        this.customStyle['--color'] = ' #6600cc';
+        this.customStyle['--width'] = '500px';
+        this.customStyle['--bg-color'] = '#6666ff';
+        this.customStyle['--btn-color'] = 'white';
+
+        Polymer.updateStyles();
+      }
+
+    });
+
+
+  </script>
+
+</dom-module>
